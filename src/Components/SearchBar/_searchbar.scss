@@ -60,3 +60,15 @@ select{
     
 
 }
+
+.zip-container>img{
+    display:flex;
+    align-items:center;
+    height:20px;
+    margin:5px;
+}
+
+.zip-container{
+    display:flex;
+    align-items: flex-start;
+}
