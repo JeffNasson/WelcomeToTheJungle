@@ -1,0 +1,57 @@
+.searchcontainer {
+  width: 100%;
+  height: 100px;
+  background-color: #232f3e; }
+
+.searchbar {
+  justify-content: center;
+  align-content: center;
+  top: 0;
+  left: 0;
+  z-index: 198;
+  font-family: arial,sans-serif;
+  font-size: 12px;
+  line-height: 1em;
+  margin: 0 -8px;
+  display: flex;
+  flex-wrap: wrap;
+  zoom: 1;
+  height: 25px; }
+
+select {
+  width: 10%;
+  height: 25px;
+  margin: 10px 1px; }
+
+.search {
+  height: 25px;
+  width: 20%;
+  margin: 10px 1px; }
+
+.buttoninput {
+  height: 25px;
+  width: 25px;
+  color: #ffff;
+  margin: 10px 1px;
+  background-image: url("magglass1.jpg"); }
+
+.zip {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-end;
+  align-content: stretch;
+  padding: 10px;
+  height: auto;
+  width: 200px;
+  color: whitesmoke; }
+
+.header-container {
+  width: 100%;
+  height: 40px; }
+
+.header-image {
+  width: 100%;
+  height: 100%;
+  background-image: url("nav5.jpg"); }

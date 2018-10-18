@@ -26,3 +26,5 @@ dotenv
 DOTENV
 /.env
 /.ENV
+
+notes.js
