@@ -2,6 +2,8 @@
   width:100%;
   height: 100px;  
   background-color: #232f3e;
+
+  position: relative
   
 }
 
@@ -38,18 +40,17 @@ select{
 .buttoninput{
     height:25px;
     width:25px;
-    color:#ffff;
+    color:lightgray;
     margin: 10px 1px; 
-    background-image: url('magglass1.jpg');
+    background-image: url('https://cosmikdebris.s3.amazonaws.com/c0aaa620-0383-42c5-b922-4f8b47694dd0-baseline-search-24px.svg');
 
 }
 
-.zip{
+.zip-container{
     display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
+	// flex-wrap: wrap;
 	justify-content: flex-start;
-	align-items: flex-end;
+	align-items: flex-start;
     align-content: stretch;
     padding:10px;
     height:auto;
@@ -61,14 +62,18 @@ select{
 
 }
 
-.zip-container>img{
-    display:flex;
-    align-items:center;
-    height:20px;
-    margin:5px;
+.fa-map-marker-alt{
+    color: whitesmoke;
+    display: flex;
+    align-items: center;
+    padding: 5px;
 }
 
-.zip-container{
-    display:flex;
-    align-items: flex-start;
-}
+// .zip-container>img{
+//     display:flex;
+//     align-items:center;
+//     height:30px;
+//     margin:5px;
+// }
+
+

@@ -2,6 +2,8 @@ import React,{Component} from 'react';
 
 import SearchBar from '../SearchBar/Searchbar.js';
 import Header from '../Header/Header.js';
+import BannerAd from '../Banners/Parent/Parent.js';
+
 
 export default class Home extends Component{
     constructor(){
@@ -14,6 +16,7 @@ export default class Home extends Component{
             <div class='home'>
                 <Header />
                 <SearchBar />
+                <BannerAd />
             </div>
         )
     }

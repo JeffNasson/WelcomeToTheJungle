@@ -9,3 +9,8 @@
     height:100%;
     background-image: url('nav5.jpg')
 }
+
+.parent{
+    display: flex;
+    flex-direction: row-reverse;
+}

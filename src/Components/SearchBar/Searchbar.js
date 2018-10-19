@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import Zip from '../SearchBar/Zipcode/Zip.js'
+import Parent from '../SearchBar/AcctOrdersCartButtons/Parent.js'
 
 export default class Searchbar extends Component{
     constructor(){
@@ -31,9 +32,8 @@ export default class Searchbar extends Component{
                     placeholder=''
                     />
             </div>
-            <div class='zip'>
-            <Zip />
-            </div>
+                 <Zip />
+                 <Parent />
         </div>
         )
     }
