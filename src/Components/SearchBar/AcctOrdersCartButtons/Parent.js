@@ -1,7 +1,6 @@
-import React,{Component} from 'react'
+import React,{Component} from 'react';
+import {Link} from 'react-router-dom';
 
-import Account from './Account';
-import Orders from './Orders';
 
 export default class Parent extends Component{
     constructor(){
@@ -12,11 +11,11 @@ export default class Parent extends Component{
     render(){
         return(
             <div class='parent-container'>
-                <a class='account-link' href='https://www.amazon.com'> <div class='account-button'>Account</div></a>
+                <Link class='account-link' to='/account'> <div class='account-button'>Account</div></Link>
 
-                <a class='orders-link' href='https://www.amazon.com'><div class='orders-button'>Orders</div></a>
+                <Link class='orders-link' to='/orders'><div class='orders-button'>Orders</div></Link>
 
-                <a class='cart-link' href='https://www.amazon.com'> <i class="fas fa-shopping-cart fa-lg">Cart</i></a>
+                <Link class='cart-link' to='/cart'> <i class="fas fa-shopping-cart fa-lg">Cart</i></Link>
             </div>
         )
     }

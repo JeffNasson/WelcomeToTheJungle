@@ -12,7 +12,6 @@ export default class Header extends Component{
         return(
             <div class='header-container'>
                <a href='http://www.amazon.com/'><img class='header-image'>
-                    {/* <a href='http://www.amazon.com/' class='header-link-to'></a> */}
                 </img></a>
             </div>
         )

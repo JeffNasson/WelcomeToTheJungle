@@ -173,5 +173,5 @@ select {
 
 .body-parent {
   height: 800px;
-  width: 800px;
+  width: 100%;
   background-color: purple; }
