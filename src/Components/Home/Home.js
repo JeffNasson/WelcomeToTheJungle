@@ -1,3 +1,5 @@
+//site home page. Will render all components
+
 import React,{Component} from 'react';
 
 import SearchBar from '../SearchBar/Searchbar.js';
