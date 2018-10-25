@@ -6,4 +6,6 @@ All scss files are being rendered in main.scss inside of the styles folder.
 Home.js in Home folder is where all homepage components are being rendered
 
 Banners folder inside of Components will contain all top, side, and ad banners
+
+need to make columns inside of the departments table with department names that can then be linked to departments in the items table 
 */
