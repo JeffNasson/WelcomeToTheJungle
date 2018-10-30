@@ -81,6 +81,9 @@ app.get('/api/departments/:id',ctrl.getDepartment)
 app.get('/api/departments',ctrl.getAllDepartments)
 app.get('/api/merchandise/:departmentId',ctrl.displayDepartment)
 
+//items
+app.get('/api/items/:id',ctrl.displayItem)
+
 
 
 

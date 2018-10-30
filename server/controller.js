@@ -38,6 +38,18 @@ module.exports={
         db.display_department([departmentId])
             .then(departmentId=>res.status(200).send(departmentId))
             .catch(err=>console.log(err))
+    },
+
+    // items
+
+    displayItem:(req,res)=>{
+        const db = req.app.get('db');
+        const {id} = req.params;
+        console.log(req.params);
+
+        db.get_item([id])
+            .then(itemId=>console.log(itemId)||res.status(200).send(itemId))
+            .catch(err=>console.log(err))
     }
 
 }

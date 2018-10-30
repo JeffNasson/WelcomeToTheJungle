@@ -186,8 +186,8 @@ select {
   align-items: center; }
 
 .all-departments > button {
-  background-color: #232f3e;
-  color: whitesmoke;
+  background-color: whitesmoke;
+  color: #232f3e;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -195,7 +195,18 @@ select {
   font-size: 15px; }
 
 .department-buttons {
-  background-color: #232f3e;
+  background-color: whitesmoke;
   display: flex;
   flex-direction: row;
   justify-content: space-around; }
+
+.products-parent {
+  height: 100vh;
+  width: 100vw;
+  background-color: pink; }
+
+.item-display {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-flow: column-reverse; }

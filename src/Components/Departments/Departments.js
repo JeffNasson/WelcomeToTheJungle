@@ -44,12 +44,12 @@ export default class Department extends Component{
         let showDepartments = this.state.merchToDisplay.map((merch,i)=>{
             console.log(merch)
             return(
-                <div className='merch-display' key={i}>
+               <Link to={`/products/${merch.id}`}> <div className='merch-display' key={i}>
                   <h5> ${merch.price}</h5>
                     <h5>{merch.name}</h5> 
                     <img src={merch.image}/>
                     {/* {merch.description}  */}
-                </div>
+                </div></Link>
             )
         })
         return(
