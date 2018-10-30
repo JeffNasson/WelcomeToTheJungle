@@ -1,3 +1,3 @@
-SELECT *
-FROM items
+select *
+from items
 where department=$1;

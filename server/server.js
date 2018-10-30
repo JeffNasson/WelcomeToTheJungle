@@ -68,22 +68,18 @@ app.get(`/auth/callback`,async(req,res)=>{
           let createdCust = await db.create_customers([name,sub,picture,email])
           req.session.user = createdCust[0];
       }
-      res.redirect(`/#/private`)
+      res.redirect(`/#/`)
 })
 
 //  login/logout
-app.get(`/api/user-data`,authBypass,(req,res)=>{
-    if(req.session.user){
-        res.status(200).send(req.session.user);
-    }else{
-        res.status(401).send('User not found, please login')
-    }
-})
+app.get(`/api/user-data`,authBypass,ctrl.login)
 
-app.get('/auth/logout',(req,res)=>{
-    req.session.destroy();
-    res.redirect('/#/')
-})
+app.get('/auth/logout',ctrl.logout)
+
+//departments
+app.get('/api/departments/:id',ctrl.getDepartment)
+app.get('/api/departments',ctrl.getAllDepartments)
+app.get('/api/merchandise/:departmentId',ctrl.displayDepartment)
 
 
 

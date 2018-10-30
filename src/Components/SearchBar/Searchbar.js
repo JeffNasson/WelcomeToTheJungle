@@ -14,20 +14,20 @@ export default class Searchbar extends Component{
     render(){
         console.log(this.state.input);
         return(
-        <div class='searchcontainer'>
-            <div class='searchbar'>
+        <div className='searchcontainer'>
+            <div className='searchbar'>
                 <select>
                     <option>All</option>
                     <option>Stuff</option>
                     <option>More Stuff</option>
                 </select>
-                <input class='search'
+                <input className='search'
                     placeholder='Search' 
                     target={this.state.input} 
                     onChange={(e)=>this.setState({input:e.target.value})} 
                     />
                 <input 
-                    class='buttoninput'
+                    className='buttoninput'
                     type='submit'
                     placeholder=''
                     />

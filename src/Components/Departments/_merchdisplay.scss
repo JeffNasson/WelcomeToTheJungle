@@ -1,0 +1,31 @@
+.merch-items{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.merch-display{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
+.all-departments>button{
+    background-color: #232f3e;
+    color: whitesmoke;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: none;
+    font-size: 15px;
+}
+
+.department-buttons{
+    background-color: #232f3e;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+
+// color: #333
