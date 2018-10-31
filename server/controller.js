@@ -41,15 +41,36 @@ module.exports={
     },
 
     // items
-
     displayItem:(req,res)=>{
         const db = req.app.get('db');
         const {id} = req.params;
-        console.log(req.params);
+        // console.log(req.params);
 
         db.get_item([id])
             .then(itemId=>console.log(itemId)||res.status(200).send(itemId))
             .catch(err=>console.log(err))
+    },
+
+    //shopping_cart
+    displayCart:(req,res)=>{
+        const db = req.app.get('db');
+        const {id} = req.session.user;
+        console.log(req.params)
+
+        db.shopping_cart([id])
+            .then(cartId=>console.log(cartId)||res.status(200).send(cartId))
+            .catch(err=>console.log(err))
+    },
+
+    addToCart:(req,res)=>{
+        const db = req.app.get('db')
+        const {id,quantity} = req.params
+        const userId = req.session.user.id
+        console.log(req.params)
+
+        db.add_to_cart([userId,id,quantity])
+            .then(cartItems=>console.log(cartItems)||res.status(200).send(cartItems))
+            .catch()
     }
 
 }

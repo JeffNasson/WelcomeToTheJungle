@@ -31,13 +31,14 @@ app.use(session({
 let authBypass = async(req,res,next)=>{
     if(process.env.NODE_ENV){
         const db = req.app.get('db')
-        let res = await db.session_user();
+        let res = await db.session_user(1);
         req.session.user = res[0];
         next();
     } else{
         next();
     }
 }
+app.use(authBypass)
 
 //endpoints
 app.get(`/auth/callback`,async(req,res)=>{
@@ -72,7 +73,7 @@ app.get(`/auth/callback`,async(req,res)=>{
 })
 
 //  login/logout
-app.get(`/api/user-data`,authBypass,ctrl.login)
+app.get(`/api/user-data`,ctrl.login)
 
 app.get('/auth/logout',ctrl.logout)
 
@@ -83,6 +84,10 @@ app.get('/api/merchandise/:departmentId',ctrl.displayDepartment)
 
 //items
 app.get('/api/items/:id',ctrl.displayItem)
+
+//shopping_cart
+app.get('/api/cart',ctrl.displayCart)
+app.post('/api/cart/:id/:quantity',ctrl.addToCart)
 
 
 

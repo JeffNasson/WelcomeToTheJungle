@@ -8,8 +8,10 @@ export default class Products extends Component{
         super()
         this.state={
             item:[],
-            cart:[]
+            cart:[],
+            quantity:1
         }
+        this.addToCart = this.addToCart.bind(this);
     }
 
     //display item and its properties
@@ -19,12 +21,18 @@ export default class Products extends Component{
         axios.get(`/api/items/${itemId}`)
              .then((res)=>{
                 //  console.log(res.data)
+                console.log(this.state.cart)
                  this.setState({item:res.data})
              })
     }
 
     //onclick event to push item to cart
-    addToCart(){}
+    addToCart(){
+        let quantity = this.state.quantity
+        const id = this.props.match.params.id
+        axios.post(`/api/cart/${id}/${quantity}`)
+             .then(()=>alert('added to cart'))
+    }
 
     render(){
         let itemDisplay=this.state.item.map((item,i)=>{
@@ -43,8 +51,11 @@ export default class Products extends Component{
         return(
             <div className='products-parent'>
                 <SearchBar />
-                <div className='item-display2'> {itemDisplay}</div>
-                <div className='add-to-cart-sidebar'><button>Add To Cart</button>Add To Cart Sidebar</div>
+                <div className='item-display2'> 
+                    {itemDisplay}
+                    <button onClick={this.addToCart} target={this.state.cart}>Add To Cart</button> 
+                    <input type='number' min='1' max='10' value={this.state.quantity} onChange={(e)=>this.setState({quantity:e.target.value})} />
+                </div>
             </div>
         )
     }
