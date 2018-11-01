@@ -16,20 +16,32 @@ export default class Cart extends Component{
     }
 
     componentDidMount(){
-        
-
         const cartId = this.props.match.params.id
-        axios.get(`/api/cart/${cartId}`)
+        axios.get(`/api/cart`)
              .then((res)=>{
+                 console.log(res.data);
                  this.setState({cart:res.data})
              })
     }
+
+    //onClick event to remove item from cart
+
+    //onChange event to edit item quantity in cart
     
     render(){
+        let cartDisplay = this.state.cart.map((items,i)=>{
+            return(
+                <div className='cart-display-parent'>
+                    <img src={items.image} />
+                    {items.name}
+                    ${items.price}
+                </div>
+            )
+        })
         return(
             <div>
-                {this.state.cart}
-                <Link to='/checkout'><button>Checkout</button></Link>
+                {cartDisplay}
+                <button>Stripe goes here later</button>
             </div>
         )
     }

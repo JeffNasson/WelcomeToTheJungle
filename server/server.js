@@ -5,15 +5,18 @@ const massive=require('massive');
 const bodyParser=require('body-parser');
 const aws=require('aws-sdk');
 const axios=require('axios');
+const path = require('path');
 
 const ctrl=require('./controller.js');
 
 const app=express();
 app.use(bodyParser.json());
 app.use(express.static(`${__dirname}/../build`))
+app.get('*',(req,res)=>{
+    res.sendfile(path.join(__dirname,'../build/index.html'))
+})
 
-
-const {SERVER_PORT,REACT_APP_DOMAIN,REACT_APP_CLIENT_ID,CLIENT_SECRET,CONNECTION_STRING,SECRET} = process.env
+const {SERVER_PORT,REACT_APP_DOMAIN,REACT_APP_CLIENT_ID,CLIENT_SECRET,CONNECTION_STRING,SECRET,AUTH_PROTOCOL} = process.env
 
 
 //middleware
@@ -48,7 +51,7 @@ app.get(`/auth/callback`,async(req,res)=>{
         client_secret: CLIENT_SECRET,
         code: req.query.code,
         grant_type: 'authorization_code',
-        redirect_uri: `http://${req.headers.host}/auth/callback`
+        redirect_uri: `${AUTH_PROTOCOL}://${req.headers.host}/auth/callback`
       }
       // post request with code for token
       let tokenRes = await axios.post(`https://${REACT_APP_DOMAIN}/oauth/token`, payload);

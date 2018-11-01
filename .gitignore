@@ -27,5 +27,7 @@ DOTENV
 /.env
 /.ENV
 
+.env.prod
+
 
 plans.js
