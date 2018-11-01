@@ -12,9 +12,9 @@ const ctrl=require('./controller.js');
 const app=express();
 app.use(bodyParser.json());
 app.use(express.static(`${__dirname}/../build`))
-app.get('*',(req,res)=>{
-    res.sendfile(path.join(__dirname,'../build/index.html'))
-})
+// app.get('*',(req,res)=>{
+//     res.sendfile(path.join(__dirname,'../build/index.html'))
+// })
 
 const {SERVER_PORT,REACT_APP_DOMAIN,REACT_APP_CLIENT_ID,CLIENT_SECRET,CONNECTION_STRING,SECRET,AUTH_PROTOCOL} = process.env
 
