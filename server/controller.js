@@ -71,6 +71,18 @@ module.exports={
         db.add_to_cart([userId,id,quantity])
             .then(cartItems=>console.log(cartItems)||res.status(200).send(cartItems))
             .catch()
+    },
+
+    removeFromCart:(req,res)=>{
+        const db=req.app.get('db')
+        const userId = req.session.user.id
+        const {itemId}=req.params
+        console.log(userId)
+        console.log(itemId)
+
+        db.remove_from_cart([userId,+itemId])
+            .then(updatedCart=>console.log(updatedCart)||res.status(200).send(updatedCart))
+            .catch(err=>console.log(err))
     }
 
 }

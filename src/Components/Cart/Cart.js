@@ -13,10 +13,10 @@ export default class Cart extends Component{
             cart:[],
             item:[]
         }
+        this.deleteItem=this.deleteItem.bind(this);
     }
 
     componentDidMount(){
-        const cartId = this.props.match.params.id
         axios.get(`/api/cart`)
              .then((res)=>{
                  console.log(res.data);
@@ -26,18 +26,32 @@ export default class Cart extends Component{
 
     //onClick event to remove item from cart
 
-    //onChange event to edit item quantity in cart
+    deleteItem(itemId){
+        axios.delete(`/api/cart/${itemId}`)
+             .then((res)=>console.log(res.data)||this.setState({cart:res.data}))
+    }
     
     render(){
-        let cartDisplay = this.state.cart.map((items,i)=>{
+        let cartDisplay = this.state.cart.map((item,i)=>{
             return(
-                <div className='cart-display-parent'>
-                    <img src={items.image} />
-                    {items.name}
-                    ${items.price}
+                <div className='cart-display-parent' key={i}>
+                    <img src={item.image} />
+                    {item.name}
+                    ${item.price}
+                    <button onClick={()=>this.deleteItem(item.id)}>Delete Item</button>
                 </div>
             )
         })
+
+        // let deleteCartItem = this.state.cart.map((item,i)=>{
+        //         console.log(item)
+        //     return(
+        //         <div className='remove-from-cart'>
+                
+        //             <button onClick={this.deleteItem}>Remove from Cart</button>
+        //         </div>
+        //     )
+        // })
         return(
             <div>
                 {cartDisplay}

@@ -91,6 +91,7 @@ app.get('/api/items/:id',ctrl.displayItem)
 //shopping_cart
 app.get('/api/cart',ctrl.displayCart)
 app.post('/api/cart/:id/:quantity',ctrl.addToCart)
+app.delete('/api/cart/:itemId',ctrl.removeFromCart)
 
 
 
