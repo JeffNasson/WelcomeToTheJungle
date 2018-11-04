@@ -6,6 +6,7 @@ const bodyParser=require('body-parser');
 const aws=require('aws-sdk');
 const axios=require('axios');
 const path = require('path');
+// const stripe = require('stripe')(STRIPE_KEY)
 
 const ctrl=require('./controller.js');
 
@@ -16,7 +17,9 @@ app.use(express.static(`${__dirname}/../build`))
 //     res.sendfile(path.join(__dirname,'../build/index.html'))
 // })
 
-const {SERVER_PORT,REACT_APP_DOMAIN,REACT_APP_CLIENT_ID,CLIENT_SECRET,CONNECTION_STRING,SECRET,AUTH_PROTOCOL} = process.env
+const {SERVER_PORT,REACT_APP_DOMAIN,REACT_APP_CLIENT_ID,CLIENT_SECRET,CONNECTION_STRING,SECRET,AUTH_PROTOCOL,REACT_APP_STRIPE_KEY,SECRET_STRIPE} = process.env
+
+const stripe = require('stripe')(REACT_APP_STRIPE_KEY)
 
 
 //middleware
@@ -93,7 +96,49 @@ app.get('/api/cart',ctrl.displayCart)
 app.post('/api/cart/:id/:quantity',ctrl.addToCart)
 app.delete('/api/cart/:itemId',ctrl.removeFromCart)
 
+//stripe
+app.post('/api/charge',async(req,res)=>{
+    const {token} = req.body;
 
+    try{
+        const stripe = require('stripe')(SECRET_STRIPE);
+         await stripe.charges.create({
+            amount: 2000,
+            currency: 'usd',
+            description: 'An example charge',
+            source: token.id
+        },
+        async (err,charge)=>{
+            {if(err) console.log('stripe error',err)} //if err occurs, console log err
+            await db.add_to_orders.push([userId])
+                .then(orders=>console.log(orders)||res.status(200).send(orders))
+                .catch(err=>console.log(err))
+            await db.clear_cart.push([userId])
+                .then(emptyCart=>console.log(orders)||res.status(200).send(emptyCart))
+                .catch(err=>console.log(err))
+                console.log(charge)
+                res.sendStatus(200)
+        })}catch(err){
+            console.log(err)
+        }
+})
+
+// async function () {
+//     await db.push()
+//     db.delte()
+// }
 
 
 app.listen(SERVER_PORT,()=>console.log(`Listening on port: ${SERVER_PORT}`))
+
+
+
+
+
+
+// await db.add_to_orders.push([userId])
+//                 .then(orders=>console.log(orders)||res.status(200).send(orders))
+//                 .catch(err=>console.log(err))
+//             await db.clear_cart.push([userId])
+//                 .then(emptyCart=>console.log(orders)||res.status(200).send(emptyCart))
+//                 .catch(err=>console.log(err))

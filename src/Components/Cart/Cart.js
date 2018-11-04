@@ -55,7 +55,7 @@ export default class Cart extends Component{
         return(
             <div>
                 {cartDisplay}
-                <button>Stripe goes here later</button>
+                <Link to='/checkout'><button>Checkout</button></Link>
             </div>
         )
     }

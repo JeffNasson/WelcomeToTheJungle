@@ -213,10 +213,13 @@ select {
   justify-content: space-around; }
 
 .item-display > img {
-  width: 400px;
+  height: 400px;
   margin: 10px; }
 
 .items-list {
   display: flex;
   flex-direction: column-reverse;
   justify-content: space-around; }
+
+.cart-display-parent > img {
+  height: 150px; }
