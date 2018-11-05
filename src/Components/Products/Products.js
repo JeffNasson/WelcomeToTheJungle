@@ -39,9 +39,9 @@ export default class Products extends Component{
             return(
                 <div className='item-display'>
                   <div className='items-list'>
-                    <div className='item-price'> ${item.price}</div>
-                    <div className='item-description'>{item.description}</div>
-                    <div className='item-name'>{item.name}</div>
+                    <div className='item-price'> <h4>${item.price}</h4></div>
+                    <div className='item-description'><h3>{item.description}</h3></div>
+                    <div className='item-name'><h2>{item.name}</h2></div>
                   </div>
                     <img src={item.image} />
                 </div>

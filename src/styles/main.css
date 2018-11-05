@@ -173,8 +173,7 @@ select {
 
 .body-parent {
   height: 800px;
-  width: 100%;
-  background-color: purple; }
+  width: 100%; }
 
 .merch-items {
   display: flex;
@@ -203,8 +202,7 @@ select {
 
 .products-parent {
   height: 100vh;
-  width: 100vw;
-  background-color: pink; }
+  width: 100vw; }
 
 .item-display {
   height: 100%;

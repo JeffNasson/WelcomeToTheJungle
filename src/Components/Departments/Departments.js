@@ -29,8 +29,8 @@ export default class Department extends Component{
     }
 
     render(){
-        console.log(this.state.merchToDisplay);
-        console.log(this.state.chosenDepartment);
+        // console.log(this.state.merchToDisplay);
+        // console.log(this.state.chosenDepartment);
         let allDepartments = this.state.departments.map((department,i)=>{
             // console.log(department);
             // console.log(i);
