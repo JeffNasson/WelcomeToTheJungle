@@ -1,1 +1,1 @@
-My personal project on recreating a portion of Amazon.
+My personal project on creating an ecommerce store front.
