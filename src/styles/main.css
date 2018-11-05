@@ -76,14 +76,12 @@ select {
 
 .search {
   height: 25px;
-  width: 20%;
-  margin: 10px 1px; }
+  width: 20%; }
 
 .buttoninput {
   height: 25px;
   width: 25px;
   color: lightgray;
-  margin: 10px 1px;
   background-image: url("https://cosmikdebris.s3.amazonaws.com/c0aaa620-0383-42c5-b922-4f8b47694dd0-baseline-search-24px.svg"); }
 
 .zip-container {
@@ -118,6 +116,9 @@ select {
   align-items: center;
   flex-direction: row-reverse;
   font-size: 15px; }
+
+.cart-link {
+  font-family: 'Open Sans', sans-serif; }
 
 .account-button {
   display: flex;
@@ -173,7 +174,7 @@ select {
 .body-parent {
   height: 800px;
   width: 100%;
-  background-color: white; }
+  background-color: purple; }
 
 .merch-items {
   display: flex;
@@ -223,3 +224,10 @@ select {
 
 .cart-display-parent > img {
   height: 150px; }
+
+.orders-parent > h1 {
+  text-align: center; }
+
+.orders {
+  display: flex;
+  flex-direction: column; }

@@ -83,6 +83,17 @@ module.exports={
         db.remove_from_cart([userId,+itemId])
             .then(updatedCart=>console.log(updatedCart)||res.status(200).send(updatedCart))
             .catch(err=>console.log(err))
+    },
+
+    //orders
+
+    displayOrders:(req,res)=>{
+        const db=req.app.get('db')
+        const userId = req.session.user.id
+
+        db.get_orders([userId]) 
+            .then(displayOrders=>res.status(200).send(displayOrders))
+            .catch(err=>console.log(err))
     }
 
 }

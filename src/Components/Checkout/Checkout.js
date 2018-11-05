@@ -12,7 +12,7 @@ export default class Checkout extends Component{
                     <div className="example">
                      <h1>React Stripe Elements Example</h1>
                         <Elements>
-                         <CheckoutForm />
+                         <CheckoutForm history={this.props.history} />
                         </Elements>
                  </div>
                     </StripeProvider>

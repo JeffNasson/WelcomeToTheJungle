@@ -96,6 +96,7 @@ app.get('/api/cart',ctrl.displayCart)
 app.post('/api/cart/:id/:quantity',ctrl.addToCart)
 app.delete('/api/cart/:itemId',ctrl.removeFromCart)
 
+
 //stripe
 app.post('/api/charge',async(req,res)=>{
     const {token} = req.body;
@@ -109,19 +110,25 @@ app.post('/api/charge',async(req,res)=>{
             source: token.id
         },
         async (err,charge)=>{
+            const db = req.app.get('db')
+            const userId = req.session.user.id
             {if(err) console.log('stripe error',err)} //if err occurs, console log err
-            await db.add_to_orders.push([userId])
-                .then(orders=>console.log(orders)||res.status(200).send(orders))
+           let response={}
+            await db.add_to_orders([userId])
+                .then(orders=>response.orders=orders)
                 .catch(err=>console.log(err))
-            await db.clear_cart.push([userId])
-                .then(emptyCart=>console.log(orders)||res.status(200).send(emptyCart))
+            await db.clear_cart([userId])
+                .then(emptyCart=>response.emptyCart=emptyCart)
                 .catch(err=>console.log(err))
                 console.log(charge)
-                res.sendStatus(200)
+                res.status(200).send(response)
         })}catch(err){
             console.log(err)
         }
 })
+
+//orders 
+app.get('/api/orders',ctrl.displayOrders)
 
 // async function () {
 //     await db.push()

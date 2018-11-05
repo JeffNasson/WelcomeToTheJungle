@@ -22,7 +22,9 @@ class CheckoutForm extends Component {
 
   onToken=(token,addresses)=>{
     axios.post(`/api/charge`,{token,addresses})
-         .then()
+         .then((res)=>{
+           this.props.history.push(`/orders/`)
+         })
   }
 
   render() {
